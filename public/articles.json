@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "dateText": "3 September 2026",
+      "title": "Golden Bears Welcome Texas for 2026 Home Opener",
+      "titleClass": "articleTitle",
+      "excerpt": "California opens its home slate against the Longhorns as a new season of hockey arrives in Oakland.",
+      "image": "images/article14.jpg",
+      "href": "/news/article14",
+      "id": "article14",
+      "body": [
+        "OAKLAND, Calif. — The wait for hockey in Oakland is over.",
+        "California takes home ice for the first time this season on Friday, Sept. 25, welcoming Texas to Oakland Ice Center for the Golden Bears' 2026 home opener.",
+        "After an offseason of preparation, Friday night offers the first opportunity for Berkeley's new-look roster to play in front of its home crowd. Cal returns a strong core from last season while introducing a new group of Bears looking to establish their roles early in the campaign.",
+        "The Golden Bears will look to recapture the offensive identity that made them dangerous a season ago. Cal averaged 6.00 goals per game last year, with scoring threats throughout the lineup and consistent production from its defensemen.",
+        "Texas provides the first home test. The Longhorns make the trip west looking to quiet the Oakland crowd and challenge a Cal team eager to set the tone on home ice from the opening puck drop.",
+        "Early-season hockey rarely comes polished. New combinations are still taking shape, special teams are finding their rhythm and every shift offers another glimpse at what a team might become by the time the games matter most.",
+        "Friday is the first chance for Cal to find out what that looks like at home.",
+        "The lights are back on. The doors are open. And for the first time in 2026, hockey is back in Oakland.",
+        "Puck drop between California and Texas is set for Friday, Sept. 25 at Oakland Ice Center."
+      ],
+      "author": "Ethan"
+    },
+    {
       "dateText": "26 January 2026",
       "title": "Golden Bears Respond on Senior Night With Statement Win Over USC",
       "titleClass": "articleTitle longTitle",
