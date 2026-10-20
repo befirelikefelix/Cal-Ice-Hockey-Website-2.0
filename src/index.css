@@ -458,8 +458,12 @@ a.watchbtn { color: #fff; }
 .pcard { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #fff; }
 .pcard-photo { position: relative; background: var(--ice); aspect-ratio: 4 / 5; overflow: hidden; }
 .pcard-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pcard-num { position: absolute; right: 10px; bottom: 10px; background: var(--blue); color: var(--gold);
+.pcard-num { position: absolute; left: 10px; top: 10px; background: var(--blue); color: var(--gold);
   font-family: var(--disp); font-weight: 700; font-size: 16px; padding: 3px 11px; border-radius: 999px; }
+.pcard-cap { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px;
+  border-radius: 50%; border: 0; background: var(--gold); color: var(--deep); display: inline-flex;
+  align-items: center; justify-content: center; font-family: var(--body); font-weight: 900;
+  font-size: 16px; padding: 0; }
 .pcard-body { padding: 14px 16px 16px; }
 .pcard-body .h3 { text-transform: none; }
 .pcard-pos { font-family: var(--disp); font-weight: 600; font-size: 11.5px; letter-spacing: 0.1em;
@@ -490,11 +494,23 @@ a.watchbtn { color: #fff; }
 .fullbio:hover { text-decoration: underline; }
 
 /* ---- Roster: list view rows (reuses .gamecard/.gamemain's layout) ---- */
-.numbadge { position: absolute; left: -6px; bottom: -4px; width: 26px; height: 26px;
+.numbadge { position: absolute; left: -6px; top: -4px; width: 26px; height: 26px;
   border-radius: 50%; background: var(--deep); color: #fff; display: inline-flex;
   align-items: center; justify-content: center; font-family: var(--body); font-weight: 700;
   font-size: 12px; border: 2px solid #fff; }
-.numbadge-lg { left: 12px; top: 12px; bottom: auto; width: 36px; height: 36px; font-size: 15px; }
+.numbadge-lg { left: 12px; top: 12px; width: 36px; height: 36px; font-size: 15px; }
+/* Captain (C) / Assistant (A) marker — a gold disc, same weight as the
+   jersey-number badge, pinned to the opposite (top-right) corner of the
+   photo in the list/card views, where there's a photo to pin it to. */
+.capbadge-photo { position: absolute; top: -4px; right: -6px; width: 32px; height: 32px;
+  border-radius: 50%; background: var(--gold); color: var(--deep); display: inline-flex;
+  align-items: center; justify-content: center; font-family: var(--body); font-weight: 800;
+  font-size: 16px; border: 2px solid #fff; }
+/* Table view has no photo to pin it to, so it stays next to the name there. */
+.capbadge { display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--deep);
+  font-family: var(--body); font-weight: 800; font-size: 14px; margin-left: 6px;
+  vertical-align: middle; flex: 0 0 auto; }
 @media (min-width: 561px) {
   .gamemain > .rostname { flex: 1 1 200px; min-width: 0; }
   .gamemain > .rosthome { flex: 1 1 220px; min-width: 0; }
@@ -525,7 +541,7 @@ table.stats.sortable th { padding: 0; }
    card view uses so the two pages read as the same site. */
 .leadstaff { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 0; background: #fff;
   border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-.leadphoto { position: relative; background: var(--ice); min-height: 340px; }
+.leadphoto { position: relative; background: var(--ice); aspect-ratio: 4 / 5; }
 .leadphoto .stphoto { position: absolute; inset: 0; }
 .leadbody { padding: 30px 34px; align-self: center; }
 .leadname { font-family: var(--body); font-weight: 800; font-size: clamp(1.6rem, 2.6vw, 2.2rem);
@@ -542,7 +558,6 @@ table.stats.sortable th { padding: 0; }
      on top, body underneath — rather than the side-by-side feature layout,
      which left no room for the text next to a fixed photo column. */
   .leadstaff { grid-template-columns: 1fr; }
-  .leadphoto { min-height: 230px; }
   .leadbody { padding: 15px 16px 17px; align-self: stretch; }
   .leadname { font-size: 16.5px; margin: 4px 0 0; }
   .leadcontact { grid-template-columns: 1fr; gap: 0; margin-top: 8px; padding-top: 0; border-top: 0; max-width: none; }
@@ -561,7 +576,7 @@ table.stats.sortable th { padding: 0; }
 @media (max-width: 760px) { .staffgrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 460px) { .staffgrid { grid-template-columns: 1fr; } }
 .staffcard { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.staffwell { position: relative; height: 230px; background: var(--ice); }
+.staffwell { position: relative; aspect-ratio: 4 / 5; background: var(--ice); }
 .stphoto { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .stmono { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   font-family: var(--body); font-weight: 800; font-size: 46px; letter-spacing: 0.02em;

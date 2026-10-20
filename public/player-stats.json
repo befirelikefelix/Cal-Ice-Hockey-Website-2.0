@@ -46,6 +46,16 @@
           "shots": 0
         },
         {
+          "name": "Colten Fazio",
+          "number": 93,
+          "position": "F",
+          "gp": 4,
+          "g": 2,
+          "a": 1,
+          "pim": 4,
+          "shots": 0
+        },
+        {
           "name": "Roy Chebaclo",
           "number": 25,
           "position": "F",
@@ -209,7 +219,7 @@
           "name": "Bryan Bartolo",
           "number": 15,
           "position": "F",
-          "gp": 2,
+          "gp": 3,
           "g": 0,
           "a": 0,
           "pim": 0,

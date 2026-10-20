@@ -37,6 +37,15 @@ function Avatar({ player, size = 72, flat = false }) {
   )
 }
 
+function CaptainBadge({ captain }) {
+  if (!captain) return null
+  return (
+    <span className="capbadge" title={captain === 'C' ? 'Captain' : 'Assistant Captain'}>
+      {captain}
+    </span>
+  )
+}
+
 function MetaLine({ p }) {
   const parts = [p.class, p.height, p.hand && `${p.handedness} ${p.hand}`].filter(Boolean)
   return (
@@ -131,6 +140,7 @@ export default function Roster() {
                             <span style={{ position: 'relative', flex: '0 0 auto' }}>
                               <Avatar player={p} size={78} />
                               <span className="numbadge">{p.number || '?'}</span>
+                              {p.captain && <span className="capbadge-photo">{p.captain}</span>}
                             </span>
                             <div className="rostname">
                               <Link to={`/roster/${encodeURIComponent(p.name)}`}
@@ -164,6 +174,7 @@ export default function Roster() {
                     <div className="pcard-photo">
                       <Avatar player={p} flat />
                       <span className="pcard-num">#{p.number || '?'}</span>
+                      {p.captain && <span className="pcard-cap">{p.captain}</span>}
                     </div>
                     <div className="pcard-body">
                       <h3 className="h3">{p.name}</h3>
@@ -221,6 +232,7 @@ export default function Roster() {
                         <td>{p.number}</td>
                         <td style={{ fontWeight: 700 }}>
                           <Link to={`/roster/${encodeURIComponent(p.name)}`} style={{ color: 'var(--blue)', textDecoration: 'none' }}>{p.name}</Link>
+                          <CaptainBadge captain={p.captain} />
                         </td>
                         <td>{POS_LABEL[p.position] || p.position}</td>
                         <td>{p.class}</td>
