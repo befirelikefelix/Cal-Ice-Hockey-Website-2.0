@@ -167,6 +167,44 @@ to `/roster` on Apache 404s unless rewritten. A reference copy lives at
 server. It is **managed manually on the server** and deliberately **excluded from
 the deploy**, so CI never overwrites or deletes it.
 
+### Player stats auto-refresh
+
+The Stats page reads a static file, `public/player-stats.json`, built by
+[`scripts/fetch-player-stats.mjs`](scripts/fetch-player-stats.mjs) from the
+ACHA/HockeyTech feed (same feed the live Schedule page uses). **This no
+longer needs to be run and committed by hand.** The deploy workflow now runs
+it fresh before every build:
+
+- Every push to `main` refreshes stats, then builds and deploys.
+- It also runs **on a schedule** (`cron` in
+  [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), currently
+  8am/4pm UTC) so stats stay current even on weeks with no code changes —
+  e.g. the morning after a weekend game. To change how often it checks, edit
+  that cron line.
+- Need stats updated *right now* (e.g. right after a game)? Go to the repo's
+  **Actions** tab → "Deploy to HostGator" → **Run workflow**.
+
+**Why this isn't fetched live in the visitor's browser instead:** for the
+current season alone, building the stats requires one feed call per
+*finished game* (15–30+ calls a season), on top of all past seasons' data
+which never changes. Doing that in every visitor's browser on every page
+load would be slow and would hammer a third-party feed we don't control —
+risking it rate-limiting or blocking the shared API key, which would also
+break the live Schedule page. Running it once in CI and serving a small
+static JSON file is what keeps the site fast.
+
+**If stats look stale:** check the latest "Deploy to HostGator" run in the
+Actions tab — the fetch step is allowed to fail without blocking the
+deploy (`continue-on-error`), so a flaky feed just means that run's deploy
+goes out with the previous data instead of crashing. Expand the "Refresh
+player stats from ACHA feed" step's logs to see why it failed (feed
+down, API key/URL changed, a season's shape changed, etc.).
+
+The copy of `public/player-stats.json` committed in git is just a fallback
+seed for local dev (`npm run dev` without ever running the fetch script) —
+it's no longer the source of truth for production and doesn't need to be
+kept current by hand.
+
 ### Domain (Porkbun → HostGator)
 
 The domain **calicehockey.com** is registered at **Porkbun** and points at the
