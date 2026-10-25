@@ -23,6 +23,18 @@
       "opponent": "Grand Canyon University",
       "datetimeText": "Sunday, November 1st 12:00 PM MST",
       "locationText": "@AZ Ice Peoria"
+    },
+    {
+      "matchDate": "2026-10-23",
+      "matchOpponent": "San Jose State University",
+      "usGoals": 7,
+      "oppGoals": 3
+    },
+    {
+      "matchDate": "2026-10-24",
+      "matchOpponent": "San Jose State University",
+      "usGoals": 12,
+      "oppGoals": 2
     }
   ]
 }
